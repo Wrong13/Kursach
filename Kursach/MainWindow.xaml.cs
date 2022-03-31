@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,21 @@ namespace Kursach
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private async void Window_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Enter)
+            {
+                Kursach.CodeFirst.KursachContexxt db = new CodeFirst.KursachContexxt();
+                var LogUser = await db.Users
+                    .AsQueryable()
+                    .Where(x => x.UserName == LoginBox.Text && x.Password == PassBox.Password)
+                    .ToListAsync();
+                if (LogUser.Count > 0)
+                    MessageBox.Show("кк");
+                else MessageBox.Show("Не сегодня");
+            }
         }
     }
 }

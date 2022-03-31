@@ -5,15 +5,20 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Kursach"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Авторизация" Height="250" Width="500" ResizeMode="NoResize" KeyDown="Window_KeyDown">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="0.3*"/>
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            
-        </Grid.ColumnDefinitions>
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,20,0">
+            <TextBlock Text="Логин" FontSize="30"/>
+            <TextBox Margin="5,0,0,0" Padding="0,0,0,0" MinWidth="300" FontSize="25" x:Name="LoginBox"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" VerticalAlignment="Center" Margin="20,0,20,0">
+            <TextBlock Text="Пароль" FontSize="30"/>
+            <PasswordBox MinWidth="285" Margin="5,0,0,0" Padding="0,0,0,0" FontSize="25" x:Name="PassBox"/>
+        </StackPanel>
     </Grid>
+
 </Window>
